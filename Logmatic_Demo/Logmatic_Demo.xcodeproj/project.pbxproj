@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92159D031C3A8BDD00CDC837 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92159D021C3A8BDD00CDC837 /* main.m */; };
+		92159D0A1C3A8C0100CDC837 /* LMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92159D071C3A8C0100CDC837 /* LMAppDelegate.m */; };
+		92159D0B1C3A8C0100CDC837 /* LMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92159D091C3A8C0100CDC837 /* LMViewController.m */; };
+		92159D171C3A8C1F00CDC837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92159D161C3A8C1F00CDC837 /* Assets.xcassets */; };
+		928EC46B1C3A8F2900752CDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928EC4691C3A8F2900752CDC /* Main.storyboard */; };
+		928EC46E1C3A8F2E00752CDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928EC46C1C3A8F2E00752CDC /* LaunchScreen.storyboard */; };
+		D9DD59A832617E2EB9CB134A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E524DE1F7DDA47D977A9B25 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E524DE1F7DDA47D977A9B25 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE3057A38756441026C2E4A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		92159CD71C3A7D2A00CDC837 /* Logmatic_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logmatic_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92159D021C3A8BDD00CDC837 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		92159D041C3A8BEA00CDC837 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		92159D061C3A8C0100CDC837 /* LMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMAppDelegate.h; path = Classes/LMAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		92159D071C3A8C0100CDC837 /* LMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMAppDelegate.m; path = Classes/LMAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		92159D081C3A8C0100CDC837 /* LMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMViewController.h; path = Classes/LMViewController.h; sourceTree = SOURCE_ROOT; };
+		92159D091C3A8C0100CDC837 /* LMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMViewController.m; path = Classes/LMViewController.m; sourceTree = SOURCE_ROOT; };
+		92159D161C3A8C1F00CDC837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		928EC46A1C3A8F2900752CDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		928EC46D1C3A8F2E00752CDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		DECD634E49802F1AB6CBFE89 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92159CD41C3A7D2A00CDC837 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9DD59A832617E2EB9CB134A /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45102CB089360580DB75825D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DECD634E49802F1AB6CBFE89 /* Pods.debug.xcconfig */,
+				5DE3057A38756441026C2E4A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		92159CCE1C3A7D2A00CDC837 = {
+			isa = PBXGroup;
+			children = (
+				92159CD91C3A7D2A00CDC837 /* Logmatic_Demo */,
+				92159CD81C3A7D2A00CDC837 /* Products */,
+				45102CB089360580DB75825D /* Pods */,
+				FCDC3F06BB65D0AA867942C2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		92159CD81C3A7D2A00CDC837 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92159CD71C3A7D2A00CDC837 /* Logmatic_Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92159CD91C3A7D2A00CDC837 /* Logmatic_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				92159D061C3A8C0100CDC837 /* LMAppDelegate.h */,
+				92159D071C3A8C0100CDC837 /* LMAppDelegate.m */,
+				92159D081C3A8C0100CDC837 /* LMViewController.h */,
+				92159D091C3A8C0100CDC837 /* LMViewController.m */,
+				928EC4691C3A8F2900752CDC /* Main.storyboard */,
+				928EC46C1C3A8F2E00752CDC /* LaunchScreen.storyboard */,
+				92159D161C3A8C1F00CDC837 /* Assets.xcassets */,
+				92159D041C3A8BEA00CDC837 /* Info.plist */,
+				92159CDA1C3A7D2A00CDC837 /* Supporting Files */,
+			);
+			path = Logmatic_Demo;
+			sourceTree = "<group>";
+		};
+		92159CDA1C3A7D2A00CDC837 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				92159D021C3A8BDD00CDC837 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCDC3F06BB65D0AA867942C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E524DE1F7DDA47D977A9B25 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92159CD61C3A7D2A00CDC837 /* Logmatic_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92159CEE1C3A7D2A00CDC837 /* Build configuration list for PBXNativeTarget "Logmatic_Demo" */;
+			buildPhases = (
+				1D32BC5F7C70AEEC4D0547E9 /* Check Pods Manifest.lock */,
+				92159CD31C3A7D2A00CDC837 /* Sources */,
+				92159CD41C3A7D2A00CDC837 /* Frameworks */,
+				92159CD51C3A7D2A00CDC837 /* Resources */,
+				89AFF2155894C9E7E3C506F0 /* Embed Pods Frameworks */,
+				686312AE2A168774496EF0BF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logmatic_Demo;
+			productName = Logmatic_Demo;
+			productReference = 92159CD71C3A7D2A00CDC837 /* Logmatic_Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92159CCF1C3A7D2A00CDC837 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Applidium;
+				TargetAttributes = {
+					92159CD61C3A7D2A00CDC837 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 92159CD21C3A7D2A00CDC837 /* Build configuration list for PBXProject "Logmatic_Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92159CCE1C3A7D2A00CDC837;
+			productRefGroup = 92159CD81C3A7D2A00CDC837 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92159CD61C3A7D2A00CDC837 /* Logmatic_Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92159CD51C3A7D2A00CDC837 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				928EC46E1C3A8F2E00752CDC /* LaunchScreen.storyboard in Resources */,
+				92159D171C3A8C1F00CDC837 /* Assets.xcassets in Resources */,
+				928EC46B1C3A8F2900752CDC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D32BC5F7C70AEEC4D0547E9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		686312AE2A168774496EF0BF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89AFF2155894C9E7E3C506F0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92159CD31C3A7D2A00CDC837 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92159D031C3A8BDD00CDC837 /* main.m in Sources */,
+				92159D0A1C3A8C0100CDC837 /* LMAppDelegate.m in Sources */,
+				92159D0B1C3A8C0100CDC837 /* LMViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		928EC4691C3A8F2900752CDC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				928EC46A1C3A8F2900752CDC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		928EC46C1C3A8F2E00752CDC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				928EC46D1C3A8F2E00752CDC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92159CEC1C3A7D2A00CDC837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		92159CED1C3A7D2A00CDC837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92159CEF1C3A7D2A00CDC837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DECD634E49802F1AB6CBFE89 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.applidium.Logmatic-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		92159CF01C3A7D2A00CDC837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DE3057A38756441026C2E4A /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.applidium.Logmatic-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92159CD21C3A7D2A00CDC837 /* Build configuration list for PBXProject "Logmatic_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92159CEC1C3A7D2A00CDC837 /* Debug */,
+				92159CED1C3A7D2A00CDC837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92159CEE1C3A7D2A00CDC837 /* Build configuration list for PBXNativeTarget "Logmatic_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92159CEF1C3A7D2A00CDC837 /* Debug */,
+				92159CF01C3A7D2A00CDC837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92159CCF1C3A7D2A00CDC837 /* Project object */;
+}
