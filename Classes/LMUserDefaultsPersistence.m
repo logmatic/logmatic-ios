@@ -9,7 +9,7 @@
 #import "LMUserDefaultsPersistence.h"
 #import "NSArray+LMMerge.h"
 
-static NSString * const kUserDefaultsLogsKey = @"LM_SAVED_LOGS_KEY";
+static NSString * const kUserDefaultsLogsKey = @"io.logmatic.logmatic.user-defaults.logs";
 
 static LMUserDefaultsPersistence * sSharedUserDefaultsPersistence;
 
