@@ -15,16 +15,16 @@ typedef NS_ENUM(NSUInteger, LMLogLevel) {
 };
 
 @interface LMLogger : NSObject
+@property (nonatomic, copy, nullable) NSString * key;
+@property (nonatomic, copy, nullable) NSDictionary * metas;
+@property (nonatomic) NSTimeInterval sendingFrequency;
+@property (nonatomic) BOOL usePersistence; //if YES, when the app is terminated, the ongoing logs are saved and will be send again on next launching
 @property (nonatomic) LMLogLevel logLevel;
 
 + (nullable instancetype)sharedLogger;
 
-- (void)setKey:(nullable NSString *)key;
-- (void)setMetas:(nullable NSDictionary *)metas;
 - (void)setIPTracking:(nullable NSString *)ipTracking;
 - (void)setUserAgentTracking:(nullable NSString *)userAgentTracking;
-- (void)setSendingFrequency:(NSTimeInterval)frequency;
-- (void)usePersistence:(BOOL)usePersistence; //if YES, when the app is terminated, the ongoing logs are saved and will be send again on next launching
 
 - (void)startLogger;
 - (void)stopLogger;

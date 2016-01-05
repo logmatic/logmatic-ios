@@ -24,13 +24,10 @@ static LMLogger * sSharedLogger;
     BOOL _askedToWork;
 }
 @property (nonatomic, strong) id<LMPersistence> delegate;
-@property (nonatomic, copy, setter=setKey:) NSString * key;
-@property (nonatomic, copy, setter=setMetas:) NSDictionary * metas;
 @property (nonatomic, readonly) NSMutableArray<NSDictionary *> * pendingLogs;
 @property (nonatomic, readonly) NSMutableDictionary<NSNumber *, NSArray<NSDictionary *> *> * ongoingRequests;
 @property (nonatomic, readonly) AFHTTPSessionManager * sessionManager;
 @property (nonatomic, readonly) NSTimer * sendingTimer;
-@property (nonatomic, setter=setSendingFrequency:) NSTimeInterval sendingFrequency;
 
 @end
 
@@ -44,7 +41,7 @@ static LMLogger * sSharedLogger;
         _ongoingRequests = [NSMutableDictionary new];
         _sessionManager = [self _createSessionManager];
         _sendingFrequency = kDefaultSendingFrequency;
-        [self usePersistence:YES];
+        [self setUsePersistence:YES];
         [self _startNotifs];
     }
     return self;
@@ -62,6 +59,14 @@ static LMLogger * sSharedLogger;
     if (frequency < 1) {
         NSLog(@"Warning: setting a too small sendingFrequency deteriorates phone performance");
     }
+}
+
+- (BOOL)usePersistence {
+    return _delegate;
+}
+
+- (void)setUsePersistence:(BOOL)usePersistence {
+    _delegate = usePersistence ? [LMUserDefaultsPersistence sharedUserDefaultsPersistence] : nil;
 }
 
 #pragma mark - LMLogger
@@ -108,10 +113,6 @@ static LMLogger * sSharedLogger;
 
 - (void)setUserAgentTracking:(NSString *)userAgentTracking {
     [self.sessionManager.requestSerializer setValue:userAgentTracking forHTTPHeaderField:kUserAgentTrackingHeaderKey];
-}
-
-- (void)usePersistence:(BOOL)usePersistence {
-    _delegate = usePersistence ? [LMUserDefaultsPersistence sharedUserDefaultsPersistence] : nil;
 }
 
 #pragma mark - Private
