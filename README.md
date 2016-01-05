@@ -6,7 +6,7 @@ Send log entries to Logmatic.io directly from your iOS apps.
 - Use the library as a logger. Everything is forwarded to Logmatic.io as JSON documents.
 - Metas and extra attributes
 - Track real client IP address and user-agent (optional)
-- Save logs if no internet connection and try again later
+- If there is no internet connection, logs are saved and sent later
 
 ## Quick Start
 
@@ -25,7 +25,7 @@ pod 'Logmatic', '~> 1.0'
 #### Objc-C usage
 
 You can start the logger whenever you want. The `application: didFinishLaunchingWithOptions:` method is probably a good choice in order to start logging as soon as possible.
-Set your API key into the shared logger, add optional infos if needed and start the logger.
+Set your API key into the shared logger, add optional info if needed and start the logger.
 
 ```objc
 #import <Logmatic/LMLogger.h>
@@ -42,6 +42,10 @@ LMLogger * logger = [LMLogger sharedLogger];
 [logger setUserAgentTracking:@"client.user-agent"];
 // resolve client IP and copy it @ 'client.IP'
 [logger setIPTracking:@"client.IP"];
+// logs are sent periodically. Set the requests frequency here (in seconds)
+logger.sendingFrequency = 40;
+// select your logging level to see more or less info in the console
+logger.logLevel = LMLogLevelShort;
 
 // don't forget to start the logger!
 [logger startLogger];
@@ -51,7 +55,7 @@ LMLogger * logger = [LMLogger sharedLogger];
 
 #### Fire your own events
 
-To log some events you simply there is simple an unique method called `log: withMessage:`. The first parameter is a NSDictionary which is the JSON object you want to log. You can add an optional message.
+To log some events you simply there is an simple and unique method called `log: withMessage:`. The first parameter is a NSDictionary which is the JSON object you want to log. You can add an optional message.
 
 ```objc
 NSDictionary * simpleJSON = @{@"name": @"My button name"};
@@ -93,3 +97,6 @@ You can also use all the following parameters using the right method:
 | setMetas: | add some meta attributes in final JSON | `[logger setMetas:@{@"userId": @"1234"}];` |
 | setIPTracking: | resolve client IP and copy it @ ip_attr | `[logger setIPTracking:@"client.IP"];`|
 | setUserAgentTracking: | resolve client UA and copy it @ ua_attr | `[logger setUserAgentTracking:@"client.user-agent"];`|
+| setSendingFrequency: | logs are sent periodically. Set the requests frequency here (in seconds) | `[logger setSendingFrequency:40];`|
+| setLogLevel: | select your logging level to see more or less info in the console | `[logger setLogLevel:LMLogLevelShort];`|
+| setUsePersistence: | set if, when the app is terminated, the ongoing logs must be saved (and sent later). YES by default. | `[logger setUsePersistence:NO];`|
