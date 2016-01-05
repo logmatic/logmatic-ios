@@ -8,7 +8,14 @@
 
 #import "LMPersistence.h"
 
+typedef NS_ENUM(NSUInteger, LMLogLevel) {
+    LMLogLevelNone,
+    LMLogLevelShort,
+    LMLogLevelVerbose
+};
+
 @interface LMLogger : NSObject
+@property (nonatomic) LMLogLevel logLevel;
 
 + (nullable instancetype)sharedLogger;
 

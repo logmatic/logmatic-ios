@@ -7,7 +7,7 @@
 //
 
 #import "LMAppDelegate.h"
-#import "LMLogger.h"
+#import <Logmatic/LMLogger.h>
 
 static NSString * const kLogmaticKey = <#key#>; //TODO: set your personal key here
 
@@ -19,6 +19,7 @@ static NSString * const kLogmaticKey = <#key#>; //TODO: set your personal key he
     [logger setUserAgentTracking:@"uat"];
     [logger setIPTracking:@"ipt"];
     [logger startLogger];
+    logger.logLevel = LMLogLevelShort;
     return YES;
 }
 

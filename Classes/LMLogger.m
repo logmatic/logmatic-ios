@@ -182,16 +182,42 @@ static LMLogger * sSharedLogger;
 }
 
 - (void)_requestSucceededWithTask:(NSURLSessionDataTask *)task {
-    [self.ongoingRequests removeObjectForKey:@(task.taskIdentifier)];
+    NSNumber * taskIdentifier = @(task.taskIdentifier);
+    NSArray<NSDictionary *> * succeededLogs = self.ongoingRequests[taskIdentifier];
+    [self.ongoingRequests removeObjectForKey:taskIdentifier];
+    NSString * successMessage = [NSString stringWithFormat:@"%lu logs sent successfully.", (unsigned long)[succeededLogs count]];
+    switch (self.logLevel) {
+        case LMLogLevelShort:
+            NSLog(@"%@", successMessage);
+            break;
+        case LMLogLevelVerbose:
+            NSLog(@"%@ Logs:\n%@", successMessage, succeededLogs);
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)_requestFailedWithTask:(NSURLSessionDataTask *)task error:(NSError *)error {
     NSNumber * taskIdentifier = @(task.taskIdentifier);
     NSArray<NSDictionary *> * failedLogs = self.ongoingRequests[taskIdentifier];
     [self.ongoingRequests removeObjectForKey:taskIdentifier];
+    BOOL sentLater = NO;
     if ([error code] == NSURLErrorNotConnectedToInternet && [failedLogs count] > 0) {
+        sentLater = YES;
         NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [failedLogs count])];
         [self.pendingLogs insertObjects:failedLogs atIndexes:indexSet]; //failedLogs are older than pendingLogs so they must be before them in the pending queue
+    }
+    NSString * failureMessage = [NSString stringWithFormat:@"Failed to send %lu logs. Sent later: %@.", (unsigned long)[failedLogs count], sentLater ? @"YES" : @"NO"];
+    switch (self.logLevel) {
+        case LMLogLevelShort:
+            NSLog(@"%@", failureMessage);
+            break;
+        case LMLogLevelVerbose:
+            NSLog(@"%@ Logs:\n%@", failureMessage, failedLogs);
+            break;
+        default:
+            break;
     }
 }
 
