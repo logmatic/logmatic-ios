@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
-  - Logmatic (0.1.1):
+  - Logmatic (0.1.2):
     - AFNetworking (~> 3.0.0)
 
 DEPENDENCIES:
@@ -26,6 +26,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  Logmatic: f590c2c2b93beb2fae73c23e9a977fc6fc8e2a7e
+  Logmatic: d28eca550f0fe1c66014a72e8bbb4e1077ef8096
 
 COCOAPODS: 0.39.0

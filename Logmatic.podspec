@@ -1,9 +1,9 @@
 Pod::Spec.new do |spec|
   spec.name         = 'Logmatic'
   spec.version      = '0.1.2'
-  spec.authors      = 'CANAL + Overseas and Applidium by FABERNOVEL'
+  spec.authors      = 'Logmatic.io'
   spec.license      = 'MIT'
-  spec.homepage     = 'http://applidium.com'
+  spec.homepage     = 'http://logmatic.io'
   spec.summary      = 'iOS version for Logmatic.io'
   spec.platform     = 'ios', '7.0'
   spec.source       = { :git => 'https://github.com/logmatic/logmatic-ios.git', :tag => "v#{spec.version}" }
