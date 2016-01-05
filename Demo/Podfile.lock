@@ -26,6 +26,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  Logmatic: f8941ea74c16c796d3b8902b1f7c8800aba31fbf
+  Logmatic: f590c2c2b93beb2fae73c23e9a977fc6fc8e2a7e
 
 COCOAPODS: 0.39.0
