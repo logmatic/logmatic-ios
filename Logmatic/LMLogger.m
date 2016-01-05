@@ -62,7 +62,7 @@ static LMLogger * sSharedLogger;
 }
 
 - (BOOL)usePersistence {
-    return _delegate;
+    return _delegate != nil;
 }
 
 - (void)setUsePersistence:(BOOL)usePersistence {
