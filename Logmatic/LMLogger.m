@@ -16,6 +16,7 @@ static NSString * const kMessageKey = @"message";
 static NSString * const kTimestampKey = @"timestamp";
 static NSString * const kIpTrackingHeaderKey = @"X-Logmatic-Add-IP";
 static NSString * const kUserAgentTrackingHeaderKey = @"X-Logmatic-Add-UserAgent";
+static NSString * const kLoggingPrefix = @"[Logmatic]";
 static const NSTimeInterval kDefaultSendingFrequency = 20;
 
 static LMLogger * sSharedLogger;
@@ -186,7 +187,7 @@ static LMLogger * sSharedLogger;
     NSNumber * taskIdentifier = @(task.taskIdentifier);
     NSArray<NSDictionary *> * succeededLogs = self.ongoingRequests[taskIdentifier];
     [self.ongoingRequests removeObjectForKey:taskIdentifier];
-    NSString * successMessage = [NSString stringWithFormat:@"%lu logs sent successfully.", (unsigned long)[succeededLogs count]];
+    NSString * successMessage = [NSString stringWithFormat:@"%@ %lu log(s) sent successfully.", kLoggingPrefix, (unsigned long)[succeededLogs count]];
     switch (self.logLevel) {
         case LMLogLevelShort:
             NSLog(@"%@", successMessage);
@@ -209,7 +210,7 @@ static LMLogger * sSharedLogger;
         NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [failedLogs count])];
         [self.pendingLogs insertObjects:failedLogs atIndexes:indexSet]; //failedLogs are older than pendingLogs so they must be before them in the pending queue
     }
-    NSString * failureMessage = [NSString stringWithFormat:@"Failed to send %lu logs. Sent later: %@.", (unsigned long)[failedLogs count], sentLater ? @"YES" : @"NO"];
+    NSString * failureMessage = [NSString stringWithFormat:@"%@ Failed to send %lu log(s). Sent later: %@.", kLoggingPrefix, (unsigned long)[failedLogs count], sentLater ? @"YES" : @"NO"];
     switch (self.logLevel) {
         case LMLogLevelShort:
             NSLog(@"%@", failureMessage);
