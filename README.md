@@ -1,4 +1,6 @@
 # logmatic-ios
+*Link to the [Logmatic.io documentation](http://doc.logmatic.io/docs/logmatic-ios)*
+
 Send log entries to Logmatic.io directly from your iOS apps.
 
 ## Features
