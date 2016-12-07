@@ -9,7 +9,6 @@
 #import "LMLogger.h"
 #import "NSArray+LMMerge.h"
 #import "LMUserDefaultsPersistence.h"
-#import "AFNetworking.h"
 
 static NSString * const kRootUrl = @"https://api.logmatic.io/v1/input";
 static NSString * const kMessageKey = @"message";
@@ -27,7 +26,7 @@ static LMLogger * sSharedLogger;
 @property (nonatomic, strong) id<LMPersistence> delegate;
 @property (nonatomic, readonly) NSMutableArray<NSDictionary *> * pendingLogs;
 @property (nonatomic, readonly) NSMutableDictionary<NSNumber *, NSArray<NSDictionary *> *> * ongoingRequests;
-@property (nonatomic, readonly) AFHTTPSessionManager * sessionManager;
+@property (nonatomic, readonly) NSURLSession *session;
 @property (nonatomic, readonly) NSTimer * sendingTimer;
 
 @end
@@ -40,7 +39,7 @@ static LMLogger * sSharedLogger;
     if ([super init]) {
         _pendingLogs = [NSMutableArray new];
         _ongoingRequests = [NSMutableDictionary new];
-        _sessionManager = [self _createSessionManager];
+        _session = [self _createSession];
         _sendingFrequency = kDefaultSendingFrequency;
         [self setUsePersistence:YES];
         [self _startNotifs];
@@ -109,20 +108,23 @@ static LMLogger * sSharedLogger;
 }
 
 - (void)setIPTracking:(NSString *)ipTracking {
-    [self.sessionManager.requestSerializer setValue:ipTracking forHTTPHeaderField:kIpTrackingHeaderKey];
+    NSMutableDictionary *headers = [self.session.configuration.HTTPAdditionalHeaders mutableCopy];
+    headers[kIpTrackingHeaderKey] = ipTracking ?: @"";
+    self.session.configuration.HTTPAdditionalHeaders = [headers copy];
 }
 
 - (void)setUserAgentTracking:(NSString *)userAgentTracking {
-    [self.sessionManager.requestSerializer setValue:userAgentTracking forHTTPHeaderField:kUserAgentTrackingHeaderKey];
+    NSMutableDictionary *headers = [self.session.configuration.HTTPAdditionalHeaders mutableCopy];
+    headers[kUserAgentTrackingHeaderKey] = userAgentTracking ?: @"";
+    self.session.configuration.HTTPAdditionalHeaders = [headers copy];
 }
 
 #pragma mark - Private
 #pragma mark Init
 
-- (AFHTTPSessionManager *)_createSessionManager {
-    AFHTTPSessionManager * sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kRootUrl]];
-    sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
-    return sessionManager;
+- (NSURLSession *)_createSession {
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    return session;
 }
 
 - (void)_start {
@@ -174,13 +176,34 @@ static LMLogger * sSharedLogger;
 }
 
 - (NSURLSessionDataTask *)_sendLogs:(NSArray<NSDictionary *> *)logs {
-    AFHTTPSessionManager * manager = self.sessionManager;
-    NSURLSessionDataTask * task = [manager POST:self.key parameters:logs progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [self _requestSucceededWithTask:task];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [self _requestFailedWithTask:task error:error];
+    __block NSURLSessionDataTask *task = [self.session dataTaskWithRequest:[self _requestWithLogs:logs]
+                                                         completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
+    {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        if (httpResponse.statusCode == 200) {
+            [self _requestSucceededWithTask:task];
+        } else {
+            [self _requestFailedWithTask:task error:error];
+        }
     }];
+
+    [task resume];
     return task;
+}
+
+- (NSURLRequest *)_requestWithLogs:(NSArray<NSDictionary *> *)logs {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", kRootUrl, self.key]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                         cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                     timeoutInterval:60];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    request.HTTPMethod = @"POST";
+
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:logs options:0 error:nil];
+    request.HTTPBody = postData;
+
+    return request;
 }
 
 - (void)_requestSucceededWithTask:(NSURLSessionDataTask *)task {

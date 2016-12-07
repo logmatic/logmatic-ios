@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'Logmatic'
-  spec.version      = '1.0.0'
+  spec.version      = '1.0.1'
   spec.authors      = 'Logmatic.io'
   spec.license      = 'MIT'
   spec.homepage     = 'http://logmatic.io'
@@ -10,5 +10,4 @@ Pod::Spec.new do |spec|
   spec.source_files = 'Logmatic/*.{h,m}'
   spec.framework    = 'Foundation'
   spec.requires_arc = true
-  spec.dependency 'AFNetworking', '~>3.0.0'
 end
