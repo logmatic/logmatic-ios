@@ -21,7 +21,7 @@ To integrate Logmatic into your Xcode project using CocoaPods, specify it in you
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'Logmatic', '~> 1.0'
+pod 'Logmatic', '~> 1.0.2'
 ```
 
 #### Objc-C usage
