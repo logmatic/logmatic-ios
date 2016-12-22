@@ -12,6 +12,6 @@
 
 + (nullable instancetype)sharedUserDefaultsPersistence;
 
-+ (nullable instancetype)new NS_UNAVAILABLE;
-- (nullable instancetype)init NS_UNAVAILABLE;
++ (nonnull instancetype)new NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 @end

@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, LMLogLevel) {
 - (void)stopLogger;
 - (void)log:(nullable NSDictionary *)dictionary withMessage:(nullable NSString *)message;
 
-//for the moment, only one logger at the same time is available
-+ (nullable instancetype)new NS_UNAVAILABLE;
-- (nullable instancetype)init NS_UNAVAILABLE;
+// for the moment, only one logger at the same time is available
++ (nonnull instancetype)new NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 @end
