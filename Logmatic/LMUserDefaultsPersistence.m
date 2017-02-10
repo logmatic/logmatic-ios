@@ -28,8 +28,12 @@ static LMUserDefaultsPersistence * sSharedUserDefaultsPersistence;
 #pragma mark - LMPersistence
 
 - (void)replaceLogs:(NSArray<NSDictionary *> *)logs {
+    NSData *data = nil;
+    if (logs) {
+        data = [NSKeyedArchiver archivedDataWithRootObject:logs];
+    }
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:logs forKey:kUserDefaultsLogsKey];
+    [userDefaults setObject:data forKey:kUserDefaultsLogsKey];
     [userDefaults synchronize];
 }
 
@@ -39,9 +43,12 @@ static LMUserDefaultsPersistence * sSharedUserDefaultsPersistence;
     [self replaceLogs:mergedLogs];
 }
 
-- (NSArray<NSDictionary *> *)savedLogs {
-    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults objectForKey:kUserDefaultsLogsKey];
+- (nullable NSArray<NSDictionary *> *)savedLogs {
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsLogsKey];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    return nil;
 }
 
 - (void)deleteAllLogs {
