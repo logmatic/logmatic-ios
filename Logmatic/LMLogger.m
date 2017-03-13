@@ -107,17 +107,23 @@ static LMLogger * sSharedLogger;
     [self.pendingLogs addObject:mutableParams];
 }
 
-- (void)setIPTracking:(NSString *)ipTracking {
+- (void)setAdditionalHeader:(NSString *)header withValue:(NSString *)value {
     NSMutableDictionary *headers = [self.session.configuration.HTTPAdditionalHeaders mutableCopy];
-    headers[kIpTrackingHeaderKey] = ipTracking ?: @"";
+    if (!headers) {
+        headers = [NSMutableDictionary dictionaryWithCapacity:1];
+    }
+    headers[header] = value ?: @"";
     self.session.configuration.HTTPAdditionalHeaders = [headers copy];
 }
 
-- (void)setUserAgentTracking:(NSString *)userAgentTracking {
-    NSMutableDictionary *headers = [self.session.configuration.HTTPAdditionalHeaders mutableCopy];
-    headers[kUserAgentTrackingHeaderKey] = userAgentTracking ?: @"";
-    self.session.configuration.HTTPAdditionalHeaders = [headers copy];
+- (void)setIPTracking:(NSString *)ipTracking {
+    [self setAdditionalHeader:kIpTrackingHeaderKey withValue:ipTracking];
 }
+
+- (void)setUserAgentTracking:(NSString *)userAgentTracking {
+    [self setAdditionalHeader:kUserAgentTrackingHeaderKey withValue:userAgentTracking];
+}
+
 
 #pragma mark - Private
 #pragma mark Init
