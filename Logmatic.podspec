@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'Logmatic'
-  spec.version      = '1.0.1'
+  spec.version      = '1.0.2'
   spec.authors      = 'Logmatic.io'
   spec.license      = 'MIT'
   spec.homepage     = 'http://logmatic.io'
