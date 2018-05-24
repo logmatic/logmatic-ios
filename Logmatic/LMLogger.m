@@ -10,6 +10,8 @@
 #import "NSArray+LMMerge.h"
 #import "LMUserDefaultsPersistence.h"
 
+#import <UIKit/UIKit.h>
+
 static NSString * const kRootUrl = @"https://api.logmatic.io/v1/input";
 static NSString * const kMessageKey = @"message";
 static NSString * const kTimestampKey = @"timestamp";
